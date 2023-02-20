@@ -94,7 +94,7 @@ def mkposter(datadir):
         with html_file.open("w") as f:
             f.write(html_out)
 
-        subprocess.run(["python", "-m", "http.server"], cwd=tempdir, shell=True)
+        subprocess.run(["python3", "-m", "http.server"], cwd=tempdir, shell=True)
 
 
 def entrypoint():
