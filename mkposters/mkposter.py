@@ -75,7 +75,7 @@ def mkposter(datadir):
                 f"{_here}/style.scss",
                 str(css_file),
                 "--no-source-map",
-            ]
+            ], shell=True
         )
         with css_file.open() as f:
             css_out = f.read()
@@ -94,8 +94,8 @@ def mkposter(datadir):
         with html_file.open("w") as f:
             f.write(html_out)
 
-        print(subprocess.run(["python", "-V"]))
-        subprocess.run(["python", "-m", "http.server"], cwd=tempdir)
+        print(subprocess.run(["python", "-V"], shell=True))
+        subprocess.run(["python", "-m", "http.server"], cwd=tempdir, shell=True)
 
 
 def entrypoint():
