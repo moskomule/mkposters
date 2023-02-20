@@ -95,3 +95,12 @@ def mkposter(datadir):
             f.write(html_out)
 
         subprocess.run(["python", "-m", "http.server"], cwd=tempdir)
+
+
+def entrypoint():
+    import argparse
+    p = argparse.ArgumentParser(description="mkposters: Make posters from Markdown files.")
+    p.add_argument("data_dir", help="Directory containing poster data, such as `poster.md`.")
+    args = p.parse_args()
+
+    mkposter(args.data_dir)
